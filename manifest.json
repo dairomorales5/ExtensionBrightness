@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+	"name": "Brightness",
+	"description": "Disminuye el brillo de un sitio",
+	"version": "1.0",
+  "background": {
+      "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage", "scripting", "tabs", "activeTab"],
+  "commands": {
+      "use-brightness": {
+          "suggested_key": {
+              "default": "Ctrl+B"
+          },
+          "description": "Ajusta el nivel de brillo al preestablecido"
+      }
+  }
+}
