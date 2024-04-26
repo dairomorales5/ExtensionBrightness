@@ -14,19 +14,15 @@ chrome.storage.sync.get('brillo', ({brillo}) => {
       });
   });
   let previous = styles_document['filter'];
-  console.log("Previous: " + previous);
 	if (previous.includes("brightness")) {
     // Eliminar el valor anterior de brillo
 		previous = previous.replace(/brightness\(\d+\.?\d*\)/, "");
-    console.log(".previous: " + previous);
 	}
   // Incluir un background blanco si la web no tiene uno
   if (!styles_document['background-color'] || !styles_document['background']) {
     document.querySelector("html").style.backgroundColor = "white";
   }
   // Actualizar el brillo de la página
-  console.log("Brillo: " + brillo);
-  console.log("Brillo anterior: " + previous);
 	document.querySelector("html").style.filter = previous + "brightness("+parseInt(brillo)/100+")";
 	/*let imgs = document.getElementsByTagName("img");
 	for(i=0;i<imgs.length;i++){
