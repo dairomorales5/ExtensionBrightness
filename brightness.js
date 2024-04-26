@@ -2,7 +2,7 @@ chrome.storage.sync.get('brillo', ({brillo}) => {
   // Verificar estilos previos
   var elementos = document.querySelectorAll('html, body');
   var styles_document = {};
-
+  
   // Iterar sobre los elementos html y body
   elementos.forEach(function(elemento) {
       // Obtener los estilos computados del elemento actual
@@ -13,7 +13,7 @@ chrome.storage.sync.get('brillo', ({brillo}) => {
           styles_document[propiedad] = styles_document[propiedad] ? styles_document[propiedad] + ", " + valor : valor;
       });
   });
-  let previous = styles_document['filter'];
+  let previous = styles_document['filter'] || "";
 	if (previous.includes("brightness")) {
     // Eliminar el valor anterior de brillo
 		previous = previous.replace(/brightness\(\d+\.?\d*\)/, "");
